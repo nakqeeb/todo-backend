@@ -6,11 +6,7 @@ const router = express.Router();
 
 const User = require('../models/user');
 
-const ageEnum = {
-    male: 'Male',
-    female: 'Female'
-};
-
+// sign up
 router.post('/signup', async (req, res, next) => {
     try {
         const fetchedUserByEmail = await User.findOne({ email: req.body.email });
@@ -62,6 +58,7 @@ router.post('/signup', async (req, res, next) => {
 });
 
 
+// login
 router.post('/login', async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
